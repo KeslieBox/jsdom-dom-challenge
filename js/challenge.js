@@ -16,7 +16,6 @@ const heart = document.getElementById("heart")
 const form = document.getElementById("comment-form")
 
 minus.addEventListener("click", function() {
-    console.log("minus")
     counterInt -= 1
     counter.innerText = counterInt
 } )
@@ -26,32 +25,21 @@ plus.addEventListener("click", function() {
     counter.innerText = counterInt
 } )
 
-heart.addEventListener("click", function() {
-    const ul = document.querySelector(".likes")
-    const likes = ul.children
-
-    if (likes.length > 0) {
-        const splitLikes = likes[0].innerText.split(" ")
-        const num1 = parseInt(splitLikes[0])
-        let num2 = parseInt(splitLikes[4])
-
-        if (num1 === counterInt) {
-
-        } else {
-            const li = document.createElement("li")
-            
-            li.innerText = `${counterInt} has been liked ${num2 += 1} times`
-            ul.append(li)
-        }
+heart.addEventListener("click", function (){
+    const likeList = document.querySelector(".likes")
+    let curCount = counter.innerText; 
+    let listItem = document.querySelector(`li[data-num='${curCount}']`);
+    if (listItem) {
+        let spanChild = listItem.children[0];
+        let numOfLikes = parseInt(spanChild.innerText, 10);
+        listItem.innerHTML = `${curCount} has been liked <span>${numOfLikes + 1}</span> times`;
     } else {
-        const li = document.createElement("li")
-            
-        li.innerText = `${counterInt} has been liked 1 times`
-        ul.append(li)
+        listItem = document.createElement("li");
+        listItem.setAttribute("data-num", curCount);
+        listItem.innerHTML = `${curCount} has been liked <span>1</span> time`;
+        likeList.appendChild(listItem);
     }
-    
 })
-
 
 form.addEventListener("submit", function(e){
     e.preventDefault()
