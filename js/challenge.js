@@ -53,20 +53,6 @@ heart.addEventListener("click", function() {
 })
 
 
-// heart.addEventListener("click", function(){
-//     const c=document.querySelector(".likes")
-//     const d=void 0
-//     if([].concat(_toConsumableArray(c.children)).map(function(counter){
-//         return parseInt(counter.dataset.num)}).includes(counterInt)){
-//             d=document.querySelector('[data-num="'+counterInt+'"]')
-//             const e=parseInt(d.children[0].innerText)
-//             d.innerHTML = counterInt +" has been liked <span>"+(e+1)+"</span> times"
-//         } else
-//         (d=document.createElement("li")).setAttribute("data-num", counterInt)
-//         d.innerHTML=counterInt+" has been liked <span>1</span> time"
-//         c.appendChild(d)
-// })
-
 form.addEventListener("submit", function(e){
     e.preventDefault()
     addComment(e.target.children[0].value)
