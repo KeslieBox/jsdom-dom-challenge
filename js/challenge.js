@@ -29,12 +29,11 @@ plus.addEventListener("click", function() {
 heart.addEventListener("click", function() {
     const ul = document.querySelector(".likes")
     const likes = ul.children
-    
 
     if (likes.length > 0) {
         const splitLikes = likes[0].innerText.split(" ")
-        const num1 = splitLikes[0]
-        const num2 = splitLikes[4]
+        const num1 = parseInt(splitLikes[0])
+        let num2 = parseInt(splitLikes[4])
 
         if (num1 === counterInt) {
 
@@ -47,7 +46,7 @@ heart.addEventListener("click", function() {
     } else {
         const li = document.createElement("li")
             
-        li.innerText = `${counterInt} has been liked ${num2 += 1} times`
+        li.innerText = `${counterInt} has been liked 1 times`
         ul.append(li)
     }
     
